@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Market</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<h1>Список пользователей:</h1>
+<h4><a th:href="@{'/users/add'}">Добавить</a></h4>
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Роль</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.firstName}"></td>
+        <td th:text="${u.lastName}"></td>
+        <td th:text="${u.role}"></td>
+        <td><a th:href="@{'/users/edit/' + ${u.id}}" >Редактировать</a></td>
+        <td><a th:href="@{'/users/delete/' + ${u.id}}">Удалить</a> </td>
+    </tr>
+    </tbody>
+</table>
+<h4><a th:href="@{/}">на Главную страницу</a></h4>
+</body>
+</html>

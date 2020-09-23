@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Market</title>
+</head>
+
+<body>
+    <h1>Изменить данные пользваотеля</h1>
+    <form th:action="@{/users/edit}" th:object="${user}" method="POST">
+        <input hidden th:field="*{id}"/>
+        <br>
+        Имя: <input th:field="*{lastName}"/>
+        <br>
+        Фамилия: <input th:field="*{firstName}"/>
+        <br>
+        Роль: <input th:field="*{role.title}"/>
+        <br>
+        <input type="submit" value="Submit" />
+    </form>
+    <br>
+    <a th:href="@{/}">на Главную страницу</a>
+</body>
+</html>
